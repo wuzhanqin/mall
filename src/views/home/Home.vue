@@ -5,7 +5,7 @@
     	</nav-bar>
     	<tab-control class="tab-control" :titles="['流行','新款','精选']" @tabClick="tabClick" ref="tabControl1" v-show="isTabFixed"/>
     	<scroll class="content" ref="scroll" :probeType="3" @scroll="contentScroll" :pull-up-load="true" @pullingUp="loadMore">
-    		<home-swiper :banners="banners" @swiper-image-load = "swiperImageLoad"></home-swiper>
+    		<home-swiper :banners="banners" @swiperImageLoad = "swiperImageLoad"></home-swiper>
     		<recommend-view :recommends="recommends"/>
     		<feature-view/>
     		<tab-control :titles="['流行','新款','精选']" @tabClick="tabClick"
@@ -54,7 +54,7 @@
 	  		},
 	  		currentType:'pop',
 	  		isShowBackTop:false,
-	  		tabOffsetTop:545,
+	  		tabOffsetTop:523,
 	  		isTabFixed:false,
 	  		saveY:0
 	  	}
@@ -100,7 +100,7 @@
 	  		this.isShowBackTop = (-position.y) > 1000
 
 	  		//2.决定tabControl是否吸顶(position:fixed)
-	  		this.isTabFixed = (-position.y) > this.tabOffsetTop+64
+	  		this.isTabFixed = (-position.y) > this.tabOffsetTop
 	  	},
 	  	loadMore(){
 	  		this.getHomeGoods(this.currentType)
